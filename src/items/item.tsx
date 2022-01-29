@@ -4,21 +4,24 @@ import Button from '@material-ui/core/Button';
 //types
 import { CartItemType } from '../App';
 
+
 type Props = {
     item: CartItemType;
-    handleAndToCart: (clickedItem: CartItemType) => void;
+    handleAddToCart: (clickedItem: CartItemType) => void;
 }
 
-const Item: React.FC<Props> = ({ item, handleAndToCart }) => {
+const Item: React.FC<Props>=({ item, handleAddToCart }) => (
     <Wrapper>
         <img src={item.image} alt={item.title} />
         <div>
             <h3>{item.title}</h3>
             <p>{item.description}</p>
-            <h3>${ item.price }</h3>
+            <h3>${item.price}</h3>
         </div>
-        <Button onClick={()=> handleAndToCart(item)}>
+        <Button onClick={() => handleAddToCart(item)}>
             Add to Cart
         </Button>
     </Wrapper>
-}
+); 
+
+export default Item;
